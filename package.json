@@ -1,0 +1,18 @@
+{
+  "name": "cargador",
+  "version": "0.0.0",
+  "description": "A NodeJS, command-line Youtube playlist downloader",
+  "main": "dist/index",
+  "repository": "git@github.com:cfanoulis/cargador.git",
+  "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-xo": "^0.29.1",
+    "eslint-config-xo-typescript": "^0.26.0",
+    "typescript": "^3.8.3"
+  }
+}
