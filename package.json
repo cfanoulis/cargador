@@ -8,11 +8,19 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.14",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
     "eslint-config-xo": "^0.29.1",
     "eslint-config-xo-typescript": "^0.26.0",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-nextra": "^0.4.7",
+    "ora": "^4.0.3",
+    "ytdl-core": "^2.0.0",
+    "ytpl": "^0.1.20"
   }
 }
