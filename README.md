@@ -1,4 +1,6 @@
 # Cargador: A CLI tool to convert YouTube playlists to MP3s
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador?ref=badge_shield)
+
 
 ### NOTICE: If you use this tool to download songs, videos, or other copyrighted material, please consider contributing to the author of the content in some way. They usually depend on YouTube ads revenue to continue doing whatever it is you're doing. The author of this tool cannot be held liable of what has been done with it, as per the MIT licence
 
@@ -16,6 +18,9 @@ cg <playlist> [location]
 And `cargador` will download all the songs in that playlist. Simple, eh?
 
 *And your daily fact: `cargador` means loader in Spanish. TMYK*
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador?ref=badge_large)
 
 ## Installation
 ```sh
