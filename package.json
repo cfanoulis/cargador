@@ -1,11 +1,14 @@
 {
   "name": "cargador",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Cargador: A CLI YouTube playlist converter",
   "main": "dist/src/index.js",
   "repository": "git@github.com:cfanoulis/cargador.git",
   "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "^12.10.0"
+  },
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.14",
     "@types/node": "^13.9.0",
