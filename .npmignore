@@ -1,3 +1,4 @@
 *
 !dist/**/*.js
+!dist/package.json
 !yarn.lock
