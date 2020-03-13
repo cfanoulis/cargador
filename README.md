@@ -18,7 +18,16 @@ And `cargador` will download all the songs in that playlist. Simple, eh?
 *And your daily fact: `cargador` means loader in Spanish. TMYK*
 
 ## Installation
-Currently working on this. Stay tuned
+```sh
+# Using NPM:
+npm i -g cargador
+
+# Using Yarn
+yarn global add cargador
+
+# Using pnpm
+pnpm add --global cargador
+```
 
 ## Contributing
 Pull requests are always welcome! Check the [good first issues](https://github.com/cfanoulis/cargador/labels/good%20first%20issue) and the [help wanted](https://github.com/cfanoulis/cargador/labels/help%20wanted) labels for things to work on.
