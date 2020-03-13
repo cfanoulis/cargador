@@ -6,9 +6,6 @@
   "repository": "git@github.com:cfanoulis/cargador.git",
   "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "^12.10.0"
-  },
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.14",
     "@types/node": "^13.9.0",
