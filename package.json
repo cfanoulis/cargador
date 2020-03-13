@@ -1,6 +1,6 @@
 {
   "name": "cargador",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Cargador: A CLI YouTube playlist converter",
   "main": "dist/src/index.js",
   "repository": "git@github.com:cfanoulis/cargador.git",
