@@ -1,38 +1,47 @@
-import ytdl from 'ytdl-core';
-// no proper typings
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ytpl = require('ytpl');
-import Ffmpeg from 'fluent-ffmpeg';
+#!/usr/bin/env node
+
+import { processSongs } from './processSongs';
+import pkg from '../package.json';
+import { homedir } from 'os';
 import {join} from 'path';
-import ora from 'ora';
+import meow from 'meow';
+import { extractPlaylist } from './extractPlaylist';
+import { extractSongs } from './extractSongs';
+import { mkdirSync } from 'fs';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const updateNotifier = require('update-notifier');
 
 async function run(): Promise<void> {
-	let [playlist, fileLocation] = process.argv.slice(2, 4);
-	playlist = await ytpl.getPlaylistID(playlist);
+	const cli = meow([
+		`Version ${pkg.version}`,
+		'',
+		'Usage:',
+		'$ cg <url> [save location]',
+		'',
+		'Flags:',
+		'-h, --help => Show this message',
+		'-m, --makefolders => Creates the destination folder, if it doesn\'t exist',
+		'-v, --version => Shows cargador\'s version',
+		'',
+		'Copyright © 2020 Charalampos Fanoulis',
+		'Report bugs or issues at https://github.com/cfanoulis/cargador'
+	].join('\n'), {
+		flags: {
+			makefolders: {
+				type: 'boolean',
+				alias: 'm'
+			}
+		}
+	});
 
-	const songs: Array<[string, string]> = (await ytpl(playlist)).items.map((e: { id: string; title: string }) => [e.id, e.title]);
-	if(!fileLocation) {
-		console.log('No location provided! Please provide a location to save songs to');
-		process.exit(1);
-	}
+	new updateNotifier().notify();
 
-	const spinner = ora('Started converting... this may take a while').start();
-	let total = songs.length;
-	let processed = 0;
-	for (const song of songs) {
+	const playlist = await extractPlaylist(cli.input[0]);
+	const location = cli.input[1] || join(homedir(), 'Downloads', 'cargador');
 
-		const stream = Ffmpeg(ytdl(song[0], {quality: 'highestaudio', filter: 'audioonly'}));
-		stream
-			.on('end', () => {
-				processed++;
-				spinner.text = `Converted ${processed}/${total} songs (${Math.round((processed/total) * 100)}% done)`;
-				if(processed === total) {
-					spinner.succeed(`Converted ${processed} songs successfully, and saved them to ${fileLocation}`);
-					process.exit(0);
-				}
-			})
-			.audioBitrate(128)
-			.saveToFile(join(fileLocation, `${song[1]}.mp3`));
-	}
+	if(cli.flags.makefolders) mkdirSync(location);
+	const songs = await extractSongs(playlist);
+	await processSongs(songs, location);
 }
 run();

@@ -1,14 +1,14 @@
 {
   "name": "cargador",
-  "version": "0.0.0",
-  "description": "A NodeJS, command-line Youtube playlist downloader",
-  "main": "dist/index",
+  "version": "0.1.0",
+  "description": "Cargador: A CLI YouTube playlist converter",
+  "main": "dist/src/index.js",
   "repository": "git@github.com:cfanoulis/cargador.git",
   "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@types/fluent-ffmpeg": "^2.1.14",
+    "@types/node": "^13.9.0",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
@@ -19,8 +19,18 @@
   "dependencies": {
     "fluent-ffmpeg": "^2.1.2",
     "fs-nextra": "^0.4.7",
+    "meow": "^6.0.1",
     "ora": "^4.0.3",
+    "update-notifier": "^4.1.0",
+    "yazl": "^2.5.1",
     "ytdl-core": "^2.0.0",
     "ytpl": "^0.1.20"
+  },
+  "bin": {
+    "cg": "dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "eslint src"
   }
 }
