@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { processSongs } from './processSongs';
-import pkg from '../package.json';
 import { homedir } from 'os';
 import {join} from 'path';
 import meow from 'meow';
@@ -9,11 +8,9 @@ import { extractPlaylist } from './extractPlaylist';
 import { extractSongs } from './extractSongs';
 import { mkdirSync } from 'fs';
 
-import {UpdateNotifier} from 'update-notifier';
-
 async function run(): Promise<void> {
 	const cli = meow([
-		`Version ${pkg.version}`,
+		`Version ${process.env.npm_package_version ?? '... wait, where\'s the version?'}`,
 		'',
 		'Usage:',
 		'$ cg <url> [save location]',
@@ -33,9 +30,6 @@ async function run(): Promise<void> {
 			}
 		}
 	});
-
-	new UpdateNotifier({pkg})
-		.notify();
 
 	const playlist = await extractPlaylist(cli.input[0]);
 	const location = cli.input[1] || join(homedir(), 'Downloads', 'cargador');
