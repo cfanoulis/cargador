@@ -1,32 +1,26 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "target": "es2020",
-    "module": "commonjs",
-    "lib": [
-      "esnext",
-      "esnext.array",
-      "esnext.asynciterable",
-      "esnext.intl",
-      "esnext.symbol"
-    ],
-    "sourceMap": true,
-    "outDir": "./dist",
-    "tsBuildInfoFile": "./dist/build.tsbuildinfo",
-    "removeComments": true,
-    "pretty": false,
-    "strict": true,
-    "alwaysStrict": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true,
-    "typeRoots": [
-      "./node_modules/**"
-    ],
-    "resolveJsonModule": true
-  }
+      "allowSyntheticDefaultImports": true,
+      "alwaysStrict": true,
+      "emitDecoratorMetadata": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "incremental": true,
+      "lib": [
+          "esnext"
+      ],
+      "module": "commonjs",
+      "outDir": "./dist",
+      "pretty": false,
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "es2020",
+      "tsBuildInfoFile": "./dist/build.tsbuildinfo",
+  },
+  "include": [
+      "./src/**/*",
+  ]
 }
