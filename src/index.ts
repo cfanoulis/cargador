@@ -9,8 +9,7 @@ import { extractPlaylist } from './extractPlaylist';
 import { extractSongs } from './extractSongs';
 import { mkdirSync } from 'fs';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const updateNotifier = require('update-notifier');
+import updateNotifier from 'update-notifier';
 
 async function run(): Promise<void> {
 	const cli = meow([
@@ -35,7 +34,8 @@ async function run(): Promise<void> {
 		}
 	});
 
-	new updateNotifier().notify();
+	new updateNotifier()
+		.notify();
 
 	const playlist = await extractPlaylist(cli.input[0]);
 	const location = cli.input[1] || join(homedir(), 'Downloads', 'cargador');

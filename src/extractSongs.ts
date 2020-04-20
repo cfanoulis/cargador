@@ -1,9 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ytpl = require('ytpl');
+import ytpl from 'ytpl';
 
 export async function extractSongs(playlist: string): Promise<string[][]> {
-	return (await ytpl(playlist)).items.map((e: {
-		id: string;
-		title: string;
-	}) => [e.id, e.title]) as string[][];
+	const playlistData = await ytpl(playlist);
+	return playlistData.items.map(e => [e.id, e.title]);
 }
