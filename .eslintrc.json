@@ -18,5 +18,6 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/prefer-readonly-parameter-types": 0
     }
 }
