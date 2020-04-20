@@ -1,5 +1,5 @@
 declare module 'update-notifier' {
-	export default class updateNotifier {
+	export class UpdateNotifier {
 		constructor(options?: UpdateNotifierOptions);
 		public notify(options?: NotifyOptions): void;
 	}

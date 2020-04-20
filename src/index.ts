@@ -9,7 +9,7 @@ import { extractPlaylist } from './extractPlaylist';
 import { extractSongs } from './extractSongs';
 import { mkdirSync } from 'fs';
 
-import updateNotifier from 'update-notifier';
+import {UpdateNotifier} from 'update-notifier';
 
 async function run(): Promise<void> {
 	const cli = meow([
@@ -34,7 +34,7 @@ async function run(): Promise<void> {
 		}
 	});
 
-	new updateNotifier()
+	new UpdateNotifier({pkg})
 		.notify();
 
 	const playlist = await extractPlaylist(cli.input[0]);
