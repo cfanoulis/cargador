@@ -2,7 +2,7 @@
   "name": "cargador",
   "version": "0.1.3",
   "description": "Cargador: A CLI YouTube playlist converter",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:cfanoulis/cargador.git",
   "author": "Charalampos Fanoulis <charalampos.fanoulis@gmail.com>",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "ytpl": "^0.1.20"
   },
   "bin": {
-    "cg": "dist/src/index.js"
+    "cg": "dist/index.js"
   },
   "scripts": {
     "build": "tsc -p .",
