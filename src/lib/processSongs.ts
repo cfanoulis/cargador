@@ -1,6 +1,6 @@
 import ytdl from 'ytdl-core';
 import Ffmpeg from 'fluent-ffmpeg';
-import { join } from 'path';
+import {join} from 'path';
 import ora from 'ora';
 
 export async function processSongs(songs: string[][], fileLocation: string): Promise<void> {
@@ -12,7 +12,8 @@ export async function processSongs(songs: string[][], fileLocation: string): Pro
 
 	for (const song of songs) {
 		try {
-			const stream = Ffmpeg(ytdl(song[0], { quality: 'highestaudio', filter: 'audioonly' }));
+			// eslint-disable-next-line new-cap
+			const stream = Ffmpeg(ytdl(song[0], {quality: 'highestaudio', filter: 'audioonly'}));
 			stream
 				.on('end', () => {
 					processed++;
@@ -22,18 +23,21 @@ export async function processSongs(songs: string[][], fileLocation: string): Pro
 						process.exit(0);
 					}
 				})
-				.on('error', (e) => {
+				.on('error', e => {
 					// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 					spinner.fail(`Failed to convert. Error:\n ${e}`);
 					spinner = ora(`Converted ${processed}/${total - errored} ${errored > 1 ? '' : `(${errored} errored)`} videos (${Math.round((processed / total) * 100)}% done)`).start();
 					errored++;
-					if(errored <= total) return;
+					if (errored <= total) {
+						return;
+					}
+
 					spinner.fail('Couldn\'t convert anything :(');
 					process.exit(1);
-				} )
+				})
 				.audioBitrate(128)
 				.saveToFile(join(fileLocation, `${song[1]}.mp3`));
-		} catch(e) {
+		} catch (e) {
 			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 			spinner.fail(`Failed to convert. Error:\n ${e}`);
 			spinner = ora(`Converted ${processed}/${total - errored} ${errored > 1 ? '' : `(${errored} errored)`} videos (${Math.round((processed / total) * 100)}% done)`).start();

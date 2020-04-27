@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 declare module 'ytpl' {
 	export default function(id: string, options?: YtplOptions): Promise<PlaylistInfo>;
 	export function validateURL(url: string): boolean;
