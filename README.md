@@ -22,6 +22,9 @@ And `cargador` will download all the songs in that playlist. Simple, eh?
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcfanoulis%2Fcargador?ref=badge_large)
 
+## Prerequisites
+- [ffmpeg](https://www.ffmpeg.org/download.html)
+
 ## Installation
 ```sh
 # Using NPM:
