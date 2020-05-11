@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "fluent-ffmpeg": "^2.1.2",
-    "meow": "^6.0.1",
+    "meow": "^7.0.0",
     "ora": "^4.0.3",
     "ytdl-core": "^2.0.0",
     "ytpl": "^0.1.20"
