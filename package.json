@@ -25,7 +25,7 @@
     "meow": "^7.0.0",
     "ora": "^4.0.3",
     "ytdl-core": "^3.1.2",
-    "ytpl": "^0.2.0"
+    "ytpl": "^1.0.0"
   },
   "bin": {
     "cg": "dist/index.js"
